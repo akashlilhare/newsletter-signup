@@ -36,15 +36,15 @@ app.post("/", function(req, res){
 
     const options = {
         method: "POST",
-        auth:"akash:01de96897aba2156e2b1bdbcdf5f5f8d-us1"
+        auth:"akash:1843750231c9763259da2a6b7b39c52c-us1"
     }
 
     const request = https.request(url,options, function(response){
-        if(response.statusCode == 200){
-            res.send("Successfully subsribed!");
-        }else{
-            res.send("There was an error with signing up,please try again!");
-        }
+       if(response.statusCode === 200){
+           res.sendFile(__dirname+"/success.html");
+       }else{
+           res.sendFile(__dirname+ "/failure.html");
+       }
         
         response.on("data", function(data){
             console.log(JSON.parse(data));
@@ -56,11 +56,11 @@ app.post("/", function(req, res){
 });
 
 app.listen(3000, function(){
-    console.log("server is runing on port 300....");
+    console.log("server is runing on port 3000....");
 });
 
 //api id
 //01de96897aba2156e2b1bdbcdf5f5f8d-us1
-
+//1843750231c9763259da2a6b7b39c52c-us1
 //app id
 //797fca7801
